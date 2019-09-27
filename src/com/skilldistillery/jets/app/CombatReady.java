@@ -1,5 +1,6 @@
 package com.skilldistillery.jets.app;
 
-public class CombatReady {
+public interface CombatReady {
 	
+	public void flight();
 }

@@ -1,5 +1,7 @@
 package com.skilldistillery.jets.app;
 
-public class CargoCarrier{
+public interface CargoCarrier /*extends CargoPlane*/ {
+	
+	void loadCargo();
 	
 }
