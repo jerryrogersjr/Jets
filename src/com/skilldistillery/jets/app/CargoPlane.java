@@ -18,7 +18,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 	public void fly() {
 		System.out.println("test call to menu"); // delete when done
 		System.out.println(super.toString());
-		System.out.println("Max flight time of the " + getModel() + "with max speed of " + getSpeed() + " mph "
+		System.out.println("Max flight time of the " + getModel() + " with max speed of " + getSpeed() + " mph "
 				+ " and max range of " + getRange() + " miles " + " would take " + flightTime() + " hours.");
 	}
 
