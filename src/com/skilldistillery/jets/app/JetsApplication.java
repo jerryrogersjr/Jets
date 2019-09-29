@@ -10,24 +10,25 @@ import java.util.Scanner;
 
 public class JetsApplication {
 
-	private AirField airfield = new AirField();
+	private AirField airfield = new AirField(null);
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		JetsApplication app = new JetsApplication();
 //		app.jetReader();
-		app.addJet(kb);
-//		app.launch(kb);
+//		app.addJet(kb);
+		app.launch(kb);
+//		app.airfield.getJets();
 
 	}
 
 	public void launch(Scanner kb) {
 		jetReader();
 
-		while (true) {
+		//while (true) {
 			displayUserMenu();
 			menuSelect(kb);
-		}
+		//}
 	}
 
 	public void jetReader() {
@@ -39,26 +40,20 @@ public class JetsApplication {
 			while ((line = bufIn.readLine()) != null) {
 				String[] elements = new String[5];
 				elements = line.split(", ");
+				
 				switch (elements[0].charAt(0)) {
-
+				
 				case 'F':
-					airfield.addJet(new FighterJet(elements[0], Double.parseDouble(elements[1]),
-							Integer.parseInt(elements[2]), Long.parseLong(elements[3])));
+					
 					break;
 				case 'C':
-					airfield.addJet(new CargoPlane(elements[0], Double.parseDouble(elements[1]),
-							Integer.parseInt(elements[2]), Long.parseLong(elements[3])));
+					
 					break;
 				case 'J':
-					airfield.addJet(new JetAirliner(elements[0], Double.parseDouble(elements[1]),
-							Integer.parseInt(elements[2]), Long.parseLong(elements[3])));
+					
 					break;
 				}
-				System.out.println(airfield);
-				System.out.println(elements);
 			}
-			bufIn.close();
-			System.out.println(Arrays.asList(line));
 		} catch (IOException e) {
 			System.err.println(e);
 		}
@@ -66,42 +61,49 @@ public class JetsApplication {
 
 	public void addJet(Scanner kb) {
 		System.out.println("What type of Jet: FighterJet, CargoPlane, or JetAirliner?");
-		String input = kb.nextLine();
+		
+		String input = kb.next();
+		while(true) {
 		if (input.equalsIgnoreCase("FighterJet")) {
 			System.out.println("Model: ");
-			String model = kb.nextLine();
+			String model = kb.next();
 			System.out.println("Speed: ");
 			double speed = Double.parseDouble(kb.next());
 			System.out.println("Range: ");
 			int range = Integer.parseInt(kb.next());
 			System.out.println("Price: ");
 			long price = Long.parseLong(kb.next());
-			airfield.addJet(new FighterJet(model, speed, range, price));
-		}
-		else if (input.equalsIgnoreCase("CargoPlane")) {
+//			airfield.addJet();
+			launch(kb);
+		} else if (input.equalsIgnoreCase("CargoPlane")) {
 			System.out.println("Model: ");
-			String model = kb.nextLine();
+			String model = kb.next();
 			System.out.println("Speed: ");
 			double speed = Double.parseDouble(kb.next());
 			System.out.println("Range: ");
 			int range = Integer.parseInt(kb.next());
 			System.out.println("Price: ");
 			long price = Long.parseLong(kb.next());
-			airfield.addJet(new CargoPlane(model, speed, range, price));
-		}
-		else if (input.equalsIgnoreCase("JetAirliner")) {
+//			airfield.addJet();
+//			airfield.addJet(new CargoPlane(model, speed, range, price));
+			launch(kb);
+		} else if (input.equalsIgnoreCase("JetAirliner")) {
 			System.out.println("Model: ");
-			String model = kb.nextLine();
+			String model = kb.next();
 			System.out.println("Speed: ");
 			double speed = Double.parseDouble(kb.next());
 			System.out.println("Range: ");
 			int range = Integer.parseInt(kb.next());
 			System.out.println("Price: ");
 			long price = Long.parseLong(kb.next());
-			airfield.addJet(new JetAirliner(model, speed, range, price));
+//			airfield.addJet();
+//			airfield.addJet(new JetAirliner(model, speed, range, price));
+			launch(kb);
 		}
 		else {
-			kb.hasNext();
+			System.out.println("\nPlease try agian\n");
+			launch(kb);
+		}
 		}
 	}
 
@@ -124,7 +126,7 @@ public class JetsApplication {
 
 		}
 		if (selection == 2) {
-
+			
 		}
 		if (selection == 3) {
 
@@ -139,7 +141,8 @@ public class JetsApplication {
 
 		}
 		if (selection == 7) {
-
+			addJet(kb);
+			
 		}
 		if (selection == 8) {
 			// break;

@@ -1,18 +1,14 @@
 package com.skilldistillery.jets.app;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class AirField {
 
 	private List<Jet> jets;
-	
-	public AirField() {
-		 
-	}
-	
+
 	public AirField(List<Jet> jets) {
-		jets = new ArrayList<>();
+		super();
+		this.jets = jets;
 	}
 
 	public List<Jet> getJets() {
@@ -22,11 +18,12 @@ public class AirField {
 	public void setJets(List<Jet> jets) {
 		this.jets = jets;
 	}
-
-	public void addJet(Jet jet) {
-		jets.add(jet);
+	
+	public void addJet() {
 		
 	}
+
+	
 
 	
 
