@@ -1,23 +1,18 @@
 package com.skilldistillery.jets.app;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
 
 public class AirField {
 
-	private List<Jet> jets = new ArrayList<>();
-
-	public AirField(List<Jet> jets) {
-		super();
-		this.jets = jets;
+	private List<Jet> jets;
+	
+	public AirField() {
+		 
 	}
-
-	public AirField(String model, double speed, int range, long price) {
-		// TODO Auto-generated constructor stub
+	
+	public AirField(List<Jet> jets) {
+		jets = new ArrayList<>();
 	}
 
 	public List<Jet> getJets() {
@@ -26,7 +21,11 @@ public class AirField {
 
 	public void setJets(List<Jet> jets) {
 		this.jets = jets;
-//		jets.add(j);
+	}
+
+	public void addJet(Jet jet) {
+		jets.add(jet);
+		
 	}
 
 	

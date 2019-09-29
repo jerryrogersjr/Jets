@@ -16,10 +16,10 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	@Override
 	public void fly() {
-		System.out.println("test call to menu"); // delete when done
-		System.out.println(super.toString());
-		System.out.println("Max flight time of the " + getModel() + " with max speed of " + getSpeed() + " mph "
-				+ " and max range of " + getRange() + " miles " + " would take " + flightTime() + " hours.");
+		//System.out.println("test call to menu"); // delete when done
+		//System.out.println(super.toString());
+		System.out.println("Max flight time of the " + this.getModel() + " with max speed of " + this.getSpeed() + " mph "
+				+ " and max range of " + this.getRange() + " miles " + " would take " + this.flightTime() + " hours.");
 	}
 
 	@Override
@@ -31,7 +31,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	@Override
 	public void loadCargo() {
-		System.out.println("All loaded up Hoss. Get ready to get airborne.");
+		System.out.println(this.getModel() + "All loaded up Hoss. Get ready to get airborne.");
 	}
 
 }
