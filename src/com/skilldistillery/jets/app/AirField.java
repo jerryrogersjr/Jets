@@ -10,19 +10,23 @@ public class AirField {
 
 	private List<Jet> jets = new ArrayList<>();
 
+	public AirField(List<Jet> jets) {
+		super();
+		this.jets = jets;
+	}
 
+	public AirField(String model, double speed, int range, long price) {
+		// TODO Auto-generated constructor stub
+	}
 
-	public void listFleet() {
-
+	public List<Jet> getJets() {
+		return jets;
 	}
 
 	public void setJets(List<Jet> jets) {
 		this.jets = jets;
 	}
 
-	public void getJets() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

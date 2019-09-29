@@ -1,5 +1,10 @@
 package com.skilldistillery.jets.app;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
@@ -18,17 +23,18 @@ public class JetsApplication {
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
-		JetsApplication af = new JetsApplication();
-		
-		af.launch(af, kb);
+		JetsApplication app = new JetsApplication();
+
+		app.launch(app, kb);
 
 	}
 
-	public void launch(JetsApplication af, Scanner kb) {
-		af.displayUserMenu();
+	public void launch(JetsApplication app, Scanner kb) {
 
-		af.menuSelect(kb, af);
-
+		while (true) {
+			app.displayUserMenu();
+			app.menuSelect(kb, app);
+		}
 	}
 
 	public void displayUserMenu() {
@@ -44,47 +50,39 @@ public class JetsApplication {
 		System.out.println("9: Quit");
 	}
 
-	public void menuSelect(Scanner kb, JetsApplication af) {
+	public void menuSelect(Scanner kb, JetsApplication app) {
 		FighterJet fj = new FighterJet();
 		CargoPlane cp = new CargoPlane();
-		
-		
-		while (true) {
-			af.displayUserMenu();
-			int selection = kb.nextInt();
-
-			if (selection == 1) {
-				System.out.println("test");
-				//af.displayUserMenu();
-			}
-
-			if (selection == 2) {
-				fj.fly();
-			}
-			if (selection == 3) {
-				//break;
-			}
-			if (selection == 4) {
-				//break;
-			}
-			if (selection == 5) {
-				cp.loadCargo();
-			}
-			if (selection == 6) {
-				fj.fight();
-			}
-			if (selection == 7) {
-				
-			}
-			if (selection == 8) {
-				//break;
-			}
-			if (selection == 9) {
-				System.out.println("\nHave a good one Airborne!");
-				System.exit(0);
-			}
+		int selection = kb.nextInt();
+		if (selection == 1) {
+			System.out.println("test");
+			// af.displayUserMenu();
 		}
+		if (selection == 2) {
+//				fj.fly();
+		}
+		if (selection == 3) {
+			// break;
+		}
+		if (selection == 4) {
+			// break;
+		}
+		if (selection == 5) {
+			cp.loadCargo();
+		}
+		if (selection == 6) {
+			fj.fight();
+		}
+		if (selection == 7) {
 
+		}
+		if (selection == 8) {
+			// break;
+		}
+		if (selection == 9) {
+			System.out.println("\nHave a good one Airborne!");
+			System.exit(0);
+		}
 	}
 
 	public AirField getAirField() {
@@ -94,6 +92,34 @@ public class JetsApplication {
 	public void setAirField(AirField airField) {
 		this.airField = airField;
 	}
-	
+
+//	public List<Jet> jetReader(String file) {
+//		String line;
+//		file = "Jets.txt";
+//		List<Jet> jets = new ArrayList<>();
+//
+//		try (BufferedReader bufIn = new BufferedReader(new FileReader(file))) {
+//			
+//			
+//			while ((line = bufIn.readLine()) != null) {
+//				String[] jetFile = line.split(", ");
+//				String type = jetFile[0];
+//				String model = jetFile[1];
+//				double speed = Double.parseDouble(jetFile[2]);
+//				int range = Integer.parseInt(jetFile[3]);
+//				long price = Long.parseLong(jetFile[4]);
+//				
+//				if (type.equalsIgnoreCase("fighter")) {
+//					Jet j = new FighterJet();
+//					jets.add(j);
+//					
+//				}
+//				
+//			}
+//		} catch (IOException e) {
+//			System.err.println(e);
+//		}
+//		return jets;
+//	}
 
 }
