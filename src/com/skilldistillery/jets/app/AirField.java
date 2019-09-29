@@ -5,6 +5,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AirField {
 
@@ -25,8 +26,11 @@ public class AirField {
 
 	public void setJets(List<Jet> jets) {
 		this.jets = jets;
+//		jets.add(j);
 	}
 
+	
 
+	
 
 }
