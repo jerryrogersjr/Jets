@@ -3,14 +3,16 @@ package com.skilldistillery.jets.app;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
+	private List<Jet> jet = new ArrayList<>();
 
-	private AirField airfield = new AirField(null);
+	private AirField airfield = new AirField();
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
@@ -33,24 +35,31 @@ public class JetsApplication {
 
 	public void jetReader() {
 		// List<Jet> jets = new ArrayList<>();
-		String line;
+		
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
-			// System.out.println(Arrays.asList(jets));
-			// }
+			String line;
 			while ((line = bufIn.readLine()) != null) {
-				String[] elements = new String[5];
-				elements = line.split(", ");
-				
-				switch (elements[0].charAt(0)) {
-				
-				case 'F':
-					
+				String[] jetFile = line.split(", ");
+				String type = jetFile[0];
+				String model = jetFile[1];
+				int speed = Integer.parseInt(jetFile[2]);
+				int range = Integer.parseInt(jetFile[3]);
+				long price = Long.parseLong(jetFile[4]);
+				//switch (elements[0].charAt(0)) {
+				switch (type) {
+				case "FighterJet" :
+					Jet fj = new FighterJet(model, speed, range, price);
+					jet.add(fj);
 					break;
-				case 'C':
-					
+				case "CargoPlane" :
+					Jet cp = new CargoPlane(model, speed, range, price);
+					jet.add(cp);
 					break;
-				case 'J':
-					
+				case "JetAirline" :
+					Jet ja = new JetAirliner(model, speed, range, price);
+					jet.add(ja);
+					break;
+				default:
 					break;
 				}
 			}
@@ -126,7 +135,7 @@ public class JetsApplication {
 
 		}
 		if (selection == 2) {
-			
+		
 		}
 		if (selection == 3) {
 
