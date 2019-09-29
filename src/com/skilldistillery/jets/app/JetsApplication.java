@@ -3,6 +3,9 @@ package com.skilldistillery.jets.app;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
@@ -12,9 +15,9 @@ public class JetsApplication {
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		JetsApplication app = new JetsApplication();
-		// app.jetReader();
-
-		app.launch(kb);
+//		app.jetReader();
+		app.addJet(kb);
+//		app.launch(kb);
 
 	}
 
@@ -28,10 +31,14 @@ public class JetsApplication {
 	}
 
 	public void jetReader() {
+		// List<Jet> jets = new ArrayList<>();
 		String line;
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
+			// System.out.println(Arrays.asList(jets));
+			// }
 			while ((line = bufIn.readLine()) != null) {
-				String[] elements = line.split(", ");
+				String[] elements = new String[5];
+				elements = line.split(", ");
 				switch (elements[0].charAt(0)) {
 
 				case 'F':
@@ -47,9 +54,54 @@ public class JetsApplication {
 							Integer.parseInt(elements[2]), Long.parseLong(elements[3])));
 					break;
 				}
+				System.out.println(airfield);
+				System.out.println(elements);
 			}
+			bufIn.close();
+			System.out.println(Arrays.asList(line));
 		} catch (IOException e) {
 			System.err.println(e);
+		}
+	}
+
+	public void addJet(Scanner kb) {
+		System.out.println("What type of Jet: FighterJet, CargoPlane, or JetAirliner?");
+		String input = kb.nextLine();
+		if (input.equalsIgnoreCase("FighterJet")) {
+			System.out.println("Model: ");
+			String model = kb.nextLine();
+			System.out.println("Speed: ");
+			double speed = Double.parseDouble(kb.next());
+			System.out.println("Range: ");
+			int range = Integer.parseInt(kb.next());
+			System.out.println("Price: ");
+			long price = Long.parseLong(kb.next());
+			airfield.addJet(new FighterJet(model, speed, range, price));
+		}
+		else if (input.equalsIgnoreCase("CargoPlane")) {
+			System.out.println("Model: ");
+			String model = kb.nextLine();
+			System.out.println("Speed: ");
+			double speed = Double.parseDouble(kb.next());
+			System.out.println("Range: ");
+			int range = Integer.parseInt(kb.next());
+			System.out.println("Price: ");
+			long price = Long.parseLong(kb.next());
+			airfield.addJet(new CargoPlane(model, speed, range, price));
+		}
+		else if (input.equalsIgnoreCase("JetAirliner")) {
+			System.out.println("Model: ");
+			String model = kb.nextLine();
+			System.out.println("Speed: ");
+			double speed = Double.parseDouble(kb.next());
+			System.out.println("Range: ");
+			int range = Integer.parseInt(kb.next());
+			System.out.println("Price: ");
+			long price = Long.parseLong(kb.next());
+			airfield.addJet(new JetAirliner(model, speed, range, price));
+		}
+		else {
+			kb.hasNext();
 		}
 	}
 
