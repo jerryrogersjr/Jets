@@ -38,13 +38,13 @@ public class JetsApplication {
 				String[] jetFile = line.split(", ");
 				
 				if (jetFile[0].contentEquals("FighterJet")) {
-					jet.add(new FighterJet(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
+					airfield.addJet(new FighterJet(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
 				} else if (jetFile[0].contentEquals("CargoPlane")) {
-					jet.add(new CargoPlane(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
+					airfield.addJet(new CargoPlane(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
 				} else if (jetFile[0].contentEquals("JetAirliner")) {
-					jet.add(new JetAirliner(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
+					airfield.addJet(new JetAirliner(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
 				}
 

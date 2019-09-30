@@ -24,7 +24,8 @@ public class AirField {
 		this.jets = jets;
 	}
 	
-	public void addJet() {
+	public void addJet(Jet jet) {
+		jets.add(jet);
 		
 	}
 
