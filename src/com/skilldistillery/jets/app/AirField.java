@@ -28,7 +28,9 @@ public class AirField {
 		
 	}
 
-	
+	public void fly() {
+		System.out.println("Aircraft is airborne");
+	}
 
 	
 
