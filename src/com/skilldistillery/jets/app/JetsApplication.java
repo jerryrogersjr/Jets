@@ -31,10 +31,11 @@ public class JetsApplication {
 
 	public void jetReader() {
 //		 List<Jet> jets = new ArrayList<>();
-
+		// /Users/jerryrogers/SD/Java/workspace/Jets/jets.txt
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
+				System.out.println(line);
 				String[] jetFile = line.split(", ");
 				
 				if (jetFile[0].contentEquals("FighterJet")) {
@@ -78,9 +79,10 @@ public class JetsApplication {
 		}
 		if (selection == 2) {
 			airfield.fly();
+
 		}
 		if (selection == 3) {
-
+			getTopSpeed();
 		}
 		if (selection == 4) {
 			// break;
@@ -104,4 +106,20 @@ public class JetsApplication {
 		}
 	}
 
+	private void getTopSpeed() {
+		double fastestSpeed = 0.0;
+		System.out.println("Fastest Jet: ");
+		for (Jet jet : airfield.getJets()) {
+			if (jet.getSpeed() > fastestSpeed) {
+				fastestSpeed = jet.getSpeed();
+			}
+		}
+		for (Jet jet : airfield.getJets()) {
+			if (jet.getSpeed() == fastestSpeed) {
+				System.out.println(jet);
+			}
+			break;
+		}
+	}
+	
 }

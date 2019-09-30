@@ -1,3 +1,5 @@
-CargoPlane,HerculesCargo,299,2529,132_000_000
-FighterJet,Spirit,628,6897,737_000_000
-JetAirliner,BoeingJumbo,570,8400,500_000_000
+CargoPlane,HerculesCargo,299,2529,132000000
+FighterJet,Spirit,628,6897,737000000
+JetAirliner,BoeingJumbo,570,8400,500000000
+JetAirliner,Boeing747,540,5400,345000000
+FighterJet,SR71,2247,5400,987000000
