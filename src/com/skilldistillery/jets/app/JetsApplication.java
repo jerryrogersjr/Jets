@@ -3,12 +3,10 @@ package com.skilldistillery.jets.app;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
-	private List<Jet> jet = new ArrayList<>();
+	//private List<Jet> jet = new ArrayList<>();
 
 	private AirField airfield;
 
@@ -17,7 +15,7 @@ public class JetsApplication {
 		JetsApplication app = new JetsApplication();
 		app.airfield = new AirField();
 		app.launch(kb);
-
+//		app.airfield.getJets();
 	}
 
 	public void launch(Scanner kb) {
@@ -35,16 +33,17 @@ public class JetsApplication {
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
-				System.out.println(line);
+				// System.out.println(line); Prints from the text file.
 				String[] jetFile = line.split(", ");
+				jetFile[0].charAt(0);
 				
-				if (jetFile[0].contentEquals("FighterJet")) {
+				if (jetFile[0].equalsIgnoreCase("FighterJet")) {
 					airfield.addJet(new FighterJet(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
-				} else if (jetFile[0].contentEquals("CargoPlane")) {
+				} else if (jetFile[0].equalsIgnoreCase("CargoPlane")) {
 					airfield.addJet(new CargoPlane(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
-				} else if (jetFile[0].contentEquals("JetAirliner")) {
+				} else if (jetFile[0].equalsIgnoreCase("JetAirliner")) {
 					airfield.addJet(new JetAirliner(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
 				}
@@ -54,7 +53,7 @@ public class JetsApplication {
 		} catch (IOException e) {
 			System.err.println(e);
 		}
-		//return jet;
+		// return jet;
 
 	}
 
@@ -75,14 +74,16 @@ public class JetsApplication {
 		int selection = kb.nextInt();
 		if (selection == 1) {
 			airfield.getJets();
-			System.out.println(jet);
+			System.out.println();
 		}
 		if (selection == 2) {
 			airfield.fly();
+			System.out.println();
 
 		}
 		if (selection == 3) {
 			getTopSpeed();
+			System.out.println();
 		}
 		if (selection == 4) {
 			// break;
@@ -91,14 +92,18 @@ public class JetsApplication {
 
 		}
 		if (selection == 6) {
-			
+			for (Jet jet : airfield.getJets()) {
+				if (jet instanceof FighterJet) {
+					((FighterJet) jet).fight();
+				}
+			}
 		}
 		if (selection == 7) {
 //			addJet(kb);
 
 		}
 		if (selection == 8) {
-			// break;
+			
 		}
 		if (selection == 9) {
 			System.out.println("\nHave a good one Airborne!");
@@ -121,5 +126,5 @@ public class JetsApplication {
 			break;
 		}
 	}
-	
+
 }

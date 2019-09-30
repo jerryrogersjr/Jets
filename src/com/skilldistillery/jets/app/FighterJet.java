@@ -32,7 +32,7 @@ public class FighterJet extends Jet implements CombatReady {
 	@Override
 	public void fight() {
 		// TODO Auto-generated method stub
-		System.out.println("Boom, ShakaLaka, Boom!");
+		System.out.println("Boom, ShakaLaka, Boom! \tAt " + this.getSpeed());
 	}
 
 }
