@@ -10,15 +10,13 @@ import java.util.Scanner;
 public class JetsApplication {
 	private List<Jet> jet = new ArrayList<>();
 
-	private AirField airfield = new AirField();
+	private AirField airfield;
 
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		JetsApplication app = new JetsApplication();
-//		app.jetReader();
-//		app.addJet(kb);
+		app.airfield = new AirField();
 		app.launch(kb);
-//		app.airfield.getJets();
 
 	}
 
@@ -31,14 +29,14 @@ public class JetsApplication {
 		}
 	}
 
-	public List<Jet> jetReader() {
-		// List<Jet> jets = new ArrayList<>();
+	public void jetReader() {
+//		 List<Jet> jets = new ArrayList<>();
 
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
 			String line;
 			while ((line = bufIn.readLine()) != null) {
 				String[] jetFile = line.split(", ");
-
+				
 				if (jetFile[0].contentEquals("FighterJet")) {
 					jet.add(new FighterJet(jetFile[0], jetFile[1], Double.parseDouble(jetFile[2]),
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
@@ -50,15 +48,12 @@ public class JetsApplication {
 							Integer.parseInt(jetFile[3]), Long.parseLong(jetFile[4])));
 				}
 
-
-				// System.out.println(line);
-
 			}
 			bufIn.close();
 		} catch (IOException e) {
 			System.err.println(e);
 		}
-		return jet;
+		//return jet;
 
 	}
 
@@ -82,7 +77,7 @@ public class JetsApplication {
 			System.out.println(jet);
 		}
 		if (selection == 2) {
-
+			airfield.fly();
 		}
 		if (selection == 3) {
 
@@ -94,7 +89,7 @@ public class JetsApplication {
 
 		}
 		if (selection == 6) {
-
+			
 		}
 		if (selection == 7) {
 //			addJet(kb);

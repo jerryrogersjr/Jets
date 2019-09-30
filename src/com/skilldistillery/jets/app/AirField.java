@@ -5,7 +5,7 @@ import java.util.List;
 
 public class AirField {
 
-	private List<Jet> jets = new ArrayList<Jet>();
+	private List<Jet> jets;
 
 	public AirField(List<Jet> jets) {
 		super();
@@ -30,10 +30,7 @@ public class AirField {
 
 	public void fly() {
 		System.out.println("Aircraft is airborne");
+		System.out.println();
 	}
-
-	
-
-	
 
 }
