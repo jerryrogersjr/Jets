@@ -13,7 +13,8 @@ public class AirField {
 	}
 
 	public AirField() {
-		// TODO Auto-generated constructor stub
+		jets = new ArrayList<Jet>();
+		
 	}
 
 	public List<Jet> getJets() {
