@@ -12,15 +12,13 @@ public class JetAirliner extends Jet {
 
 	@Override
 	public void fly() {
-		System.out.println(super.toString());
-		System.out.println("Max flight time of the " + getModel() + "with max speed of " + getSpeed() + " mph "
-		+ " and max range of " + getRange() + " miles " + " would take " + flightTime() + " hours.");
+				System.out.println("Max flight time of the " + this.getModel() + " with max speed of " + this.getSpeed() + " mph "
+						+ " and max range of " + this.getRange() + " miles " + " would take " + this.flightTime() + " hours.");
 	}
 
-	@Override
 	public double flightTime() {
 		double time;
-		time = getRange() / getSpeed();
+		time = this.getRange() / this.getSpeed();
 		return time;
 	}
 	

@@ -39,7 +39,10 @@ public class AirField {
 
 	public void fly() {
 		System.out.println("Aircraft is airborne");
-		System.out.println();
+			for (Jet jet : jets) {
+				jet.fly();
+			}
+		
 	}
 
 	public void addToFleet() {
