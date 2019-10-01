@@ -10,7 +10,6 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	}
 
-
 	@Override
 	public void fly() {
 		System.out.println("Max flight time of the " + this.getModel() + " with max speed of " + this.getSpeed()

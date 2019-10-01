@@ -26,7 +26,7 @@ public class FighterJet extends Jet implements CombatReady {
 
 	@Override
 	public void fight() {
-		
+
 		System.out.println(this.getModel() + "\tBoom, ShakaLaka, Boom! \tAt " + this.getSpeed());
 	}
 

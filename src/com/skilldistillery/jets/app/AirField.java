@@ -40,12 +40,12 @@ public class AirField {
 
 	public void fly() {
 		System.out.println("Aircraft are Airborne");
-			for (Jet jet : jets) {
-				jet.fly();
-			}
-		
+		for (Jet jet : jets) {
+			jet.fly();
+		}
+
 	}
-	
+
 	public void fight() {
 		System.out.println("Here comes the BOOM!");
 		for (Jet jet : jets) {
@@ -54,7 +54,7 @@ public class AirField {
 			}
 		}
 	}
-	
+
 	public void loadCargo() {
 		System.out.println("Loading....");
 		for (Jet jet : jets) {
@@ -62,15 +62,67 @@ public class AirField {
 				((CargoPlane) jet).loadCargo();
 			}
 		}
-		
+
 	}
 
 	public void addToFleet() {
+		System.out.println("What type of Jet would you like to add?");
+		System.out.println("press 1 for FighterJet");
+		System.out.println("press 2 for CargoPlane");
+		System.out.println("press 3 for JetAirliner");
+		System.out.println("press 4 to Exit this Menu");
+		String input = kb.next();
+//		if (input.contentEquals("1")) {
+//			Jet fj = new FighterJet(model, type, speed, range, price);
+//			Jet type = new FighterJet();
+//			System.out.println("Enter Model Name: ");
+//			String model = kb.next();
+//			System.out.println("Enter Speed: ");
+//			double speed = kb.nextDouble();
+//			System.out.println("Enter Range: ");
+//			double range = kb.nextDouble();
+//			System.out.println("Enter Price: ");
+//			long price = kb.nextLong();
+//			addJet(type);
+//		}
+		
+		
 	}
 
 	public void removeJetFromFleet() {
-		// TODO Auto-generated method stub
 
+	}
+
+	public void longestRange() {
+		double longRange = 0.0;
+		System.out.println("This Jet has the Longest Range in the fleet:");
+		for (Jet jet : jets) {
+			if (jet.getRange() > longRange) {
+				longRange = jet.getRange();
+			}
+		}
+
+		for (Jet jet : jets) {
+			if (longRange == jet.getRange()) {
+				System.out.println(jet.toString());
+			}
+		}
+	}
+
+	public void topSpeed() {
+		double topSpeed = 0.0;
+		System.out.println("This is the fastest Jet in the fleet:");
+		for (Jet jet : jets) {
+			if (jet.getSpeed() > topSpeed) {
+				topSpeed = jet.getSpeed();
+			}
+		}
+
+		for (Jet jet : jets) {
+			if (topSpeed == jet.getSpeed()) {
+				System.out.println(jet.toString());
+			}
+		}
 	}
 
 	public void jetReader() {
@@ -101,7 +153,5 @@ public class AirField {
 		}
 
 	}
-
-
 
 }

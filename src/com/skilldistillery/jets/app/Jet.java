@@ -21,10 +21,7 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		
-	}
-	public void fight() {
-		
+
 	}
 
 	public abstract double flightTime();
@@ -44,12 +41,7 @@ public abstract class Jet {
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-
-	public double getSpeedMPH() {
-		double speedMPH = 0.0;
-		return speedMPH;
-	}
-
+	
 	public int getRange() {
 		return range;
 	}
@@ -70,42 +62,6 @@ public abstract class Jet {
 	public String toString() {
 		return "Jet type: " + type + ", Model: " + model + ", Speed: " + speed + ", Range: " + range + ", Price: "
 				+ price;
-	}
-
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((model == null) ? 0 : model.hashCode());
-		result = prime * result + (int) (price ^ (price >>> 32));
-		result = prime * result + range;
-		long temp;
-		temp = Double.doubleToLongBits(speed);
-		result = prime * result + (int) (temp ^ (temp >>> 32));
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Jet other = (Jet) obj;
-		if (model == null) {
-			if (other.model != null)
-				return false;
-		} else if (!model.equals(other.model))
-			return false;
-		if (price != other.price)
-			return false;
-		if (range != other.range)
-			return false;
-		if (Double.doubleToLongBits(speed) != Double.doubleToLongBits(other.speed))
-			return false;
-		return true;
 	}
 
 	public String getType() {

@@ -12,7 +12,7 @@ public class JetsApplication {
 		JetsApplication app = new JetsApplication();
 		app.airfield = new AirField();
 		app.launch(kb);
-		
+
 	}
 
 	public void launch(Scanner kb) {
@@ -22,8 +22,6 @@ public class JetsApplication {
 			menuSelect(kb);
 		}
 	}
-
-
 
 	public void displayUserMenu() {
 
@@ -52,20 +50,21 @@ public class JetsApplication {
 		}
 
 		if (selection == 3) {
-			getTopSpeed();
+			airfield.topSpeed();
 			System.out.println();
 
 		}
 
 		if (selection == 4) {
-			getLongestRange();
-			
+			airfield.longestRange();
+			System.out.println();
+
 		}
 
 		if (selection == 5) {
 			airfield.loadCargo();
-		
-		
+			System.out.println();
+
 		}
 
 		if (selection == 6) {
@@ -75,26 +74,18 @@ public class JetsApplication {
 
 		if (selection == 7) {
 			airfield.addToFleet();
+			System.out.println();
 		}
 
 		if (selection == 8) {
 			airfield.removeJetFromFleet();
+			System.out.println();
 		}
 
 		if (selection == 9) {
 			System.out.println("\nHave a good one Airborne!");
 			System.exit(0);
 		}
-	}
-
-	private void getLongestRange() {
-		// TODO Auto-generated method stub
-
-	}
-
-	private void getTopSpeed() {
-		double fastestSpeed = 0.0;
-		System.out.println("Fastest Jet: ");
 	}
 
 }
