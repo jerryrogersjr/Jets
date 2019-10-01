@@ -18,7 +18,7 @@ public class AirField {
 	public AirField() {
 		jets = new ArrayList<Jet>();
 		jetReader();
-
+		loadCargo();
 	}
 
 	public List<Jet> getJets() {
@@ -42,6 +42,16 @@ public class AirField {
 			for (Jet jet : jets) {
 				jet.fly();
 			}
+		
+	}
+	
+	public void loadCargo() {
+		System.out.println("Loading....");
+		for (Jet jet : jets) {
+			if (jet instanceof CargoPlane) {
+				((CargoPlane) jet).loadCargo();
+			}
+		}
 		
 	}
 
@@ -82,5 +92,7 @@ public class AirField {
 		}
 
 	}
+
+
 
 }

@@ -9,17 +9,16 @@ public class CargoPlane extends Jet implements CargoCarrier {
 	public CargoPlane() {
 
 	}
-	
+
 	public void flight() {
 		System.out.println("need flight method completed");
 	}
 
 	@Override
 	public void fly() {
-		//System.out.println("test call to menu"); // delete when done
-		//System.out.println(super.toString());
-		System.out.println("Max flight time of the " + this.getModel() + " with max speed of " + this.getSpeed() + " mph "
-				+ " and max range of " + this.getRange() + " miles " + " would take " + this.flightTime() + " hours.");
+		System.out.println("Max flight time of the " + this.getModel() + " with max speed of " + this.getSpeed()
+				+ " mph " + " and max range of " + this.getRange() + " miles " + " would take " + this.flightTime()
+				+ " hours.");
 	}
 
 	@Override
@@ -31,7 +30,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	@Override
 	public void loadCargo() {
-		System.out.println(this.getModel() + "All loaded up Hoss. Get ready to get airborne.");
+		System.out.println(this.getModel() + " 64 Jumpers on a one way trip. Get ready to be airborne!\n");
 	}
 
 }

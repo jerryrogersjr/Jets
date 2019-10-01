@@ -21,7 +21,7 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		System.out.println("Aircraft is airborne");
+		System.out.println("Aircraft Are Airbone at Max Speed\n");
 	}
 
 	public abstract double flightTime();
@@ -41,11 +41,12 @@ public abstract class Jet {
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-	
+
 	public double getSpeedMPH() {
 		double speedMPH = 0.0;
 		return speedMPH;
 	}
+
 	public int getRange() {
 		return range;
 	}
@@ -64,7 +65,8 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet type: " + type + ", Model: " + model + ", Speed: " + speed + ", Range: " + range + ", Price: " + price;
+		return "Jet type: " + type + ", Model: " + model + ", Speed: " + speed + ", Range: " + range + ", Price: "
+				+ price;
 	}
 
 	@Override

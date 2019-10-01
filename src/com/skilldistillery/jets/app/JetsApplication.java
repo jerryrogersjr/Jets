@@ -61,11 +61,12 @@ public class JetsApplication {
 
 		if (selection == 4) {
 			getLongestRange();
-
+			
 		}
 
 		if (selection == 5) {
-			
+			airfield.loadCargo();
+		
 		
 		}
 
