@@ -5,8 +5,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class AirField {
+	Scanner kb = new Scanner(System.in);
 
 	private List<Jet> jets;
 
@@ -18,7 +20,6 @@ public class AirField {
 	public AirField() {
 		jets = new ArrayList<Jet>();
 		jetReader();
-		loadCargo();
 	}
 
 	public List<Jet> getJets() {
@@ -38,11 +39,20 @@ public class AirField {
 	}
 
 	public void fly() {
-		System.out.println("Aircraft is airborne");
+		System.out.println("Aircraft are Airborne");
 			for (Jet jet : jets) {
 				jet.fly();
 			}
 		
+	}
+	
+	public void fight() {
+		System.out.println("Here comes the BOOM!");
+		for (Jet jet : jets) {
+			if (jet instanceof FighterJet) {
+				((FighterJet) jet).fight();
+			}
+		}
 	}
 	
 	public void loadCargo() {
@@ -56,7 +66,6 @@ public class AirField {
 	}
 
 	public void addToFleet() {
-
 	}
 
 	public void removeJetFromFleet() {

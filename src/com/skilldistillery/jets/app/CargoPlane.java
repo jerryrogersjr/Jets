@@ -10,9 +10,6 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	}
 
-	public void flight() {
-		System.out.println("need flight method completed");
-	}
 
 	@Override
 	public void fly() {

@@ -16,8 +16,6 @@ public class JetsApplication {
 	}
 
 	public void launch(Scanner kb) {
-//		airfield.jetReader();
-//		jetReader();
 
 		while (true) {
 			displayUserMenu();
@@ -71,7 +69,8 @@ public class JetsApplication {
 		}
 
 		if (selection == 6) {
-		
+			airfield.fight();
+			System.out.println();
 		}
 
 		if (selection == 7) {

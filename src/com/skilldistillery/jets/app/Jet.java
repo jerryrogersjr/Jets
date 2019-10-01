@@ -21,7 +21,10 @@ public abstract class Jet {
 	}
 
 	public void fly() {
-		System.out.println("Aircraft Are Airbone at Max Speed\n");
+		
+	}
+	public void fight() {
+		
 	}
 
 	public abstract double flightTime();
