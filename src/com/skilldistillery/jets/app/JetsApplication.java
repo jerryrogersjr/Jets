@@ -73,6 +73,7 @@ public class JetsApplication {
 		}
 
 		if (selection == 7) {
+			airfield.addToFleetMenu();
 			airfield.addToFleet();
 			System.out.println();
 		}

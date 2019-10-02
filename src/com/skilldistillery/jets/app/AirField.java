@@ -7,6 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.sound.midi.SysexMessage;
+
 public class AirField {
 	Scanner kb = new Scanner(System.in);
 
@@ -19,7 +21,7 @@ public class AirField {
 
 	public AirField() {
 		jets = new ArrayList<Jet>();
-		jetReader();
+		jetReader(null);
 	}
 
 	public List<Jet> getJets() {
@@ -39,7 +41,7 @@ public class AirField {
 	}
 
 	public void fly() {
-		System.out.println("Aircraft are Airborne");
+		System.out.println("All Aircraft are Airborne");
 		for (Jet jet : jets) {
 			jet.fly();
 		}
@@ -65,28 +67,39 @@ public class AirField {
 
 	}
 
-	public void addToFleet() {
+	public void addToFleetMenu() {
 		System.out.println("What type of Jet would you like to add?");
 		System.out.println("press 1 for FighterJet");
 		System.out.println("press 2 for CargoPlane");
 		System.out.println("press 3 for JetAirliner");
-		System.out.println("press 4 to Exit this Menu");
+		System.out.println("enter 'quit' to Exit this Menu");
+	}
+
+	public void addToFleet() {
+		String type = null;
+		String model = null;
+		double speed = 0;
+		int range = 0;
+		long price = 0;
 		String input = kb.next();
-//		if (input.contentEquals("1")) {
-//			Jet fj = new FighterJet(model, type, speed, range, price);
-//			Jet type = new FighterJet();
-//			System.out.println("Enter Model Name: ");
-//			String model = kb.next();
-//			System.out.println("Enter Speed: ");
-//			double speed = kb.nextDouble();
-//			System.out.println("Enter Range: ");
-//			double range = kb.nextDouble();
-//			System.out.println("Enter Price: ");
-//			long price = kb.nextLong();
-//			addJet(type);
-//		}
 		
-		
+			if (input.equalsIgnoreCase("quit")) {
+				kb.nextLine();
+
+			}
+
+			if (input.contentEquals("1")) {
+				Jet fj = new FighterJet(type, model, speed, range, price);
+				System.out.println("Enter Model Name: ");
+				model = kb.next();
+				System.out.println("Enter Speed: ");
+				speed = kb.nextDouble();
+				System.out.println("Enter Range: ");
+				range = kb.nextInt();
+				System.out.println("Enter Price: ");
+				price = kb.nextLong();
+				addJet(fj);
+			}
 	}
 
 	public void removeJetFromFleet() {
@@ -125,12 +138,12 @@ public class AirField {
 		}
 	}
 
-	public void jetReader() {
+	public void jetReader(String[] file) {
 		try (BufferedReader bufIn = new BufferedReader(new FileReader("jets.txt"))) {
 			String line;
 			// for
 			while ((line = bufIn.readLine()) != null) {
-				String[] file = line.split(",");
+				file = line.split(",");
 
 				if (file[0].contentEquals("FighterJet")) {
 					Jet fj = new FighterJet(file[0], file[1], Double.parseDouble(file[2]), Integer.parseInt(file[3]),
@@ -147,11 +160,13 @@ public class AirField {
 				}
 
 			}
-			bufIn.close();
+
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		} catch (IOException e) {
-			System.err.println(e);
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-
 	}
-
 }
