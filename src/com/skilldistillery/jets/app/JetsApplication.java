@@ -8,6 +8,7 @@ public class JetsApplication {
 
 	private AirField airfield;
 	private List<Jet> jets;
+
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		JetsApplication app = new JetsApplication();
@@ -81,7 +82,6 @@ public class JetsApplication {
 
 		if (selection == 8) {
 			airfield.removeJet(kb);
-//			airfield.removeJetFromFleet();
 			System.out.println();
 		}
 

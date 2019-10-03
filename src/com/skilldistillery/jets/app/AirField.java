@@ -122,7 +122,7 @@ public class AirField {
 			String type = JetAirliner;
 			System.out.println("Enter Model Name: ");
 			model = kb.next();
-			System.out.println("Enter Speed: ");
+			System.out.println("Enter Speed (Mph): ");
 			speed = kb.nextDouble();
 			System.out.println("Enter Range: ");
 			range = kb.nextInt();
@@ -150,7 +150,7 @@ public class AirField {
 			i++;
 			System.out.println("Jet Number: " + i + "\t" + jet.toString());
 			System.out.println();
-			
+
 		}
 		try {
 			int index = kb.nextInt();

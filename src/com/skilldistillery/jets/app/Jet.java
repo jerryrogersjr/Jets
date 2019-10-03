@@ -41,7 +41,7 @@ public abstract class Jet {
 	public void setSpeed(double speed) {
 		this.speed = speed;
 	}
-	
+
 	public int getRange() {
 		return range;
 	}
@@ -60,7 +60,7 @@ public abstract class Jet {
 
 	@Override
 	public String toString() {
-		return "Jet type: " + type + ", Model: " + model + ", Speed: " + speed + ", Range: " + range + ", Price: "
+		return "Jet type: " + type + ", Model: " + model + ", Speed (Mph): " + speed + ", Range: " + range + ", Price: "
 				+ price;
 	}
 
