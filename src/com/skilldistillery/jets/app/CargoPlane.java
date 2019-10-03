@@ -26,7 +26,7 @@ public class CargoPlane extends Jet implements CargoCarrier {
 
 	@Override
 	public void loadCargo() {
-		System.out.println(this.getModel() + " 64 Jumpers on a one way trip. Get ready to be airborne!\n");
+		System.out.println(this.getModel() + " All loaded up Hoss. Get ready to be airborne!\n");
 	}
 
 }

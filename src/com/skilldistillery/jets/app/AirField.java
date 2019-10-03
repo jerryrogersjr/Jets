@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
@@ -76,33 +77,91 @@ public class AirField {
 	}
 
 	public void addToFleet() {
-		String type = null;
+
 		String model = null;
 		double speed = 0;
 		int range = 0;
 		long price = 0;
 		String input = kb.next();
-		
-			if (input.equalsIgnoreCase("quit")) {
-				kb.nextLine();
 
-			}
+		if (input.equalsIgnoreCase("quit")) {
+			kb.nextLine();
 
-			if (input.contentEquals("1")) {
-				Jet fj = new FighterJet(type, model, speed, range, price);
-				System.out.println("Enter Model Name: ");
-				model = kb.next();
-				System.out.println("Enter Speed: ");
-				speed = kb.nextDouble();
-				System.out.println("Enter Range: ");
-				range = kb.nextInt();
-				System.out.println("Enter Price: ");
-				price = kb.nextLong();
-				addJet(fj);
-			}
+		}
+
+		if (input.contentEquals("1")) {
+			String FighterJet = "FighterJet";
+			String type = FighterJet;
+			System.out.println("Enter Model Name: ");
+			model = kb.next();
+			System.out.println("Enter Speed: ");
+			speed = kb.nextDouble();
+			System.out.println("Enter Range: ");
+			range = kb.nextInt();
+			System.out.println("Enter Price: ");
+			price = kb.nextLong();
+			Jet fj = new FighterJet(type, model, speed, range, price);
+			addJet(fj);
+		}
+		if (input.contentEquals("2")) {
+			String CargoPlane = "CargoPlane";
+			String type = CargoPlane;
+			System.out.println("Enter Model Name: ");
+			model = kb.next();
+			System.out.println("Enter Speed: ");
+			speed = kb.nextDouble();
+			System.out.println("Enter Range: ");
+			range = kb.nextInt();
+			System.out.println("Enter Price: ");
+			price = kb.nextLong();
+			Jet cp = new CargoPlane(type, model, speed, range, price);
+			addJet(cp);
+		}
+		if (input.contentEquals("3")) {
+			String JetAirliner = "JetAirliner";
+			String type = JetAirliner;
+			System.out.println("Enter Model Name: ");
+			model = kb.next();
+			System.out.println("Enter Speed: ");
+			speed = kb.nextDouble();
+			System.out.println("Enter Range: ");
+			range = kb.nextInt();
+			System.out.println("Enter Price: ");
+			price = kb.nextLong();
+			Jet ja = new JetAirliner(type, model, speed, range, price);
+			addJet(ja);
+		}
+
 	}
 
 	public void removeJetFromFleet() {
+		getJets();
+		System.out.println("----------------------------------------------");
+		System.out.println("Which Jet would you like to remove?");
+		System.out.println("Enter the MODEL that you would like to remove.");
+		String input = kb.next();
+		// getJets().remove()
+	}
+
+	public void removeJet(Scanner kb) {
+		System.out.println("SELECT the JET NUMBER to REMOVE\n");
+		int i = -1;
+		for (Jet jet : jets) {
+			i++;
+			System.out.println("Jet Number: " + i + "\t" + jet.toString());
+			System.out.println();
+			
+		}
+		try {
+			int index = kb.nextInt();
+			System.out.println("Jet " + index + " Removed");
+			jets.remove(index);
+		} catch (InputMismatchException e) {
+			e.getMessage();
+			System.err.println("Try Again");
+		} catch (Exception e) {
+			System.err.println("Try Again");
+		}
 
 	}
 

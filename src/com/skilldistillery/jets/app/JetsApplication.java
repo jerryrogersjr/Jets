@@ -1,12 +1,13 @@
 package com.skilldistillery.jets.app;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class JetsApplication {
 	// private List<Jet> jet = new ArrayList<>();
 
 	private AirField airfield;
-
+	private List<Jet> jets;
 	public static void main(String[] args) {
 		Scanner kb = new Scanner(System.in);
 		JetsApplication app = new JetsApplication();
@@ -79,7 +80,8 @@ public class JetsApplication {
 		}
 
 		if (selection == 8) {
-			airfield.removeJetFromFleet();
+			airfield.removeJet(kb);
+//			airfield.removeJetFromFleet();
 			System.out.println();
 		}
 

@@ -1,4 +1,4 @@
-CargoPlane,HerculesCargo,299,2529,132000000
+CargoPlane,Hercules,299,2529,132000000
 FighterJet,Spirit,628,6897,737000000
 JetAirliner,BoeingJumbo,570,8400,500000000
 JetAirliner,Boeing747,540,5400,345000000
